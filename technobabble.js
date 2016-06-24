@@ -26,9 +26,10 @@ var TechnoBabble = function(opts){
      * @public
      */
     function generateParagraph() {
+        var numParagraphs = opts.length || 1;
         var paragraph;
 
-        for (var i = 0; i < opts.length; i++) {
+        for (var i = 0; i < numParagraphs; i++) {
             paragraph += ' ' + generateSentence();
         }
 
