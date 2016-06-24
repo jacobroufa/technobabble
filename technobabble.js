@@ -4,10 +4,9 @@ var TechnoBabble = function(opts){
 
     /**
      * Generate a specified number of sentences.
-     * @param {number} num - Number of sentences to generate
      * @public
      */
-    function generateSentence(num) {
+    function generateSentence() {
         var sentenceResult = '',
             sentencePattern = getRandom(dictionary.template);
 
@@ -24,11 +23,16 @@ var TechnoBabble = function(opts){
 
     /**
      * Generate a specified number of paragraphs.
-     * @param {number} num - Number of paragraphs to generate
      * @public
      */
-    function generateParagraph(num) {
+    function generateParagraph() {
+        var paragraph;
 
+        for (var i = 0; i < opts.length; i++) {
+            paragraph += ' ' + generateSentence();
+        }
+
+        return paragraph.trim();
     }
 
     /**
@@ -55,7 +59,7 @@ var TechnoBabble = function(opts){
     /**
      * Return public methods to technobabble
      */
-    return generateSentence;
+    return generateParagraph;
 
 };
 
